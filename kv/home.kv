@@ -1,0 +1,211 @@
+<Home>:
+    MDFloatLayout:
+        md_bg_color: "#4c6e81"
+
+    MDLabel:
+        text: "i L o - F i"
+        halign: "center"
+        theme_text_color: "Custom"
+        text_color: "white"
+        pos_hint: {'center_x': 0.5,'center_y': 0.9}
+
+    SpotipyButton:
+        elevation: 0
+        shadow_softness: 8
+        shadow_offset: (-2, 2)
+        shadow_color: .1, .1, .1, .1
+        adaptive_size: True
+        pos_hint: {"center_x": .15, "center_y": .9}
+        icon: "dots-horizontal"
+        type: "standard"
+        md_bg_color: "#4c6e81"
+        icon_color: "#e0e0da"
+
+    SpotipyButton:
+        elevation: 0
+        shadow_softness: 8
+        shadow_offset: (-2, 2)
+        shadow_color: .1, .1, .1, .1
+        adaptive_size: True
+        pos_hint: {"center_x": .85, "center_y": .9}
+        icon: "playlist-music"
+        type: "standard"
+        md_bg_color: "#4c6e81"
+        icon_color: "#e0e0da"
+
+    MDCard:
+        radius: 20, 20, 20, 20
+        size_hint: .85, .5
+        pos_hint: {"center_x": .5, "center_y": .57}
+        md_bg_color: "#4c6e81"
+        elevation: 2.5
+        shadow_softness: 10
+        shadow_color: .1, .1, .1, .1
+
+    MDCard:
+        radius: 20, 20, 20, 20
+        size_hint: .8, .38
+        pos_hint: {"center_x": .5, "center_y": .62}
+        md_bg_color: "#7aacb3"
+        elevation: 2
+        shadow_softness: 8
+        shadow_color: .1, .1, .1, .1
+    
+    SpotipyButton:
+        id: like_button
+        elevation: 0
+        shadow_softness: 8
+        shadow_offset: (-2, 2)
+        shadow_color: .1, .1, .1, .1
+        adaptive_size: True
+        pos_hint: {"center_x": .8, "center_y": .38}
+        icon: "heart"
+        type: "small"
+        md_bg_color: "#4c6e81"
+        icon_color: "#ded7db"
+        on_release:
+            root.like_music()
+
+    MDCard:
+        radius: 10, 10, 10, 10
+        size_hint: .13, .03
+        pos_hint: {"center_x": 0.23, "center_y": 0.265}
+        md_bg_color: "#4c6e81"
+        elevation: 2
+        shadow_softness: 8
+        shadow_offset: (-1, 2)
+        shadow_color: .1, .1, .1, 1
+        MDLabel:
+            id: left_time
+            text: root.detikmenit(spoti_slider.value)
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: "white"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            font_size: dp(14)
+    
+    MDCard:
+        radius: 10, 10, 10, 10
+        size_hint: .13, .03
+        pos_hint: {"center_x": 0.77, "center_y": 0.265}
+        md_bg_color: "#4c6e81"
+        elevation: 2
+        shadow_softness: 8
+        shadow_offset: (1, 2)
+        shadow_color: .1, .1, .1, 1
+        MDLabel:
+            id: right_time
+            text: root.detikmenit(spoti_slider.max)
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: "white"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            font_size: dp(14)
+
+    SpotipyButton:
+        id: shuffle_button
+        elevation: 0
+        shadow_softness: 8
+        shadow_color: .1, .1, .1, .1
+        adaptive_size: True
+        pos_hint: {"center_x": .42, "center_y": .266}
+        icon: "shuffle"
+        type: "small"
+        size_hint: .09, .04
+        md_bg_color: "#4c6e81"
+        icon_color: "#e0e0da"
+        icon_size: dp(20)
+        on_release:
+            root.shuffle_music()
+
+    SpotipyButton:
+        id: repeat_button
+        elevation: 0
+        shadow_softness: 8
+        shadow_color: .1, .1, .1, .1
+        adaptive_size: True
+        pos_hint: {"center_x": .58, "center_y": .266}
+        icon: "repeat-off"
+        type: "small"
+        size_hint: .09, .04
+        md_bg_color: "#4c6e81"
+        icon_color: "#e0e0da"
+        icon_size: dp(20)
+        on_release:
+            root.repeat_music()
+
+    MDLabel:
+        id: no_inet
+        text: "No Internet"
+        halign: "center"
+        theme_text_color: "Custom"
+        text_color: "white"
+        pos_hint: {'center_x': 0.5,'center_y': 0.225}
+
+    MDCard:
+        radius: 20, 20, 20, 20
+        size_hint: .7, .04
+        pos_hint: {"center_x": 0.5, "center_y": 0.19}
+        md_bg_color: "#4c6e81"
+        elevation: 2.5
+        shadow_softness: 8
+        shadow_color: .1, .1, .1, .1
+
+    SpotipySlider:
+        id: spoti_slider
+        min: 0.0
+        max: root.maxduration
+        value: root.music_pos
+        show_off: False
+        md_bg_color: "#2e3331"
+        size_hint: .72, 1
+        size_hint_max_y: 30
+        hint: False
+        color: "#7aacb3"
+        thumb_color_active: 45, 147, 146, 1
+        thumb_color_inactive: 45, 147, 146, 1
+        track_color_active: .1, .1, .1, 1
+        track_color_inactive: .1, .1, .1, 1
+        pos_hint: {'center_x': 0.5,'center_y': 0.193}
+
+    SpotipyButton:
+        id: play_button
+        elevation: 0
+        shadow_softness: 8
+        shadow_color: .1, .1, .1, .1
+        adaptive_size: True
+        pos_hint: {"center_x": .5, "center_y": .1}
+        icon: "play"
+        type: "standard"
+        md_bg_color: "#4c6e81"
+        icon_color: "#e0e0da"
+        icon_size: dp(40)
+        on_release:
+            root.play_music()
+
+    SpotipyButton:
+        elevation: 0
+        shadow_softness: 8
+        shadow_offset: (-2, 2)
+        shadow_color: .1, .1, .1, .1
+        adaptive_size: True
+        pos_hint: {"center_x": .34, "center_y": .1}
+        icon: "skip-previous"
+        type: "small"
+        md_bg_color: "#4c6e81"
+        icon_color: "#e0e0da"
+
+    SpotipyButton:
+        elevation: 0
+        shadow_softness: 8
+        shadow_offset: (-2, 2)
+        shadow_color: .1, .1, .1, .1
+        adaptive_size: True
+        pos_hint: {"center_x": .66, "center_y": .1}
+        icon: "skip-next"
+        type: "small"
+        md_bg_color: "#4c6e81"
+        icon_color: "#e0e0da"
+
+
+
